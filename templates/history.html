@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resume Analysis History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Analysis History</h1>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>S.No</th>
+            <th>Resume Score</th>
+            <th>ATS Score</th>
+            <th>Match Score</th>
+            <th>Skills</th>
+            <th>Missing Skills</th>
+        </tr>
+
+        {% for row in records %}
+
+        <tr>
+            <!-- FIX: serial number instead of DB id -->
+            <td>{{ loop.index }}</td>
+
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+
+</html>
